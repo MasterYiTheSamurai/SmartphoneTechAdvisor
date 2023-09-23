@@ -1,0 +1,29 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <form method="post">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="card" style="width: 40rem;">
+                    <div class="mb-3">
+                        <label for="phoneModel1" class="form-label">Phone Model 1</label>
+                        <input asp-for="PhoneName1" type="text" class="form-control" id="phoneModel1" placeholder="iPhone 12">
+                    </div>
+                    <div class="mb-3">
+                        <label for="phoneModel2" class="form-label">Phone Model 2</label>
+                        <input asp-for="PhoneName2" type="text" class="form-control" id="phonemodel2" placeholder="iPhone 13">
+                    </div>
+
+                    <input type="submit" class="btn btn-primary mb-3" value="Compare" />
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+

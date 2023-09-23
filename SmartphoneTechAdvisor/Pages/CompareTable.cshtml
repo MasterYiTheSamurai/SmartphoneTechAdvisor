@@ -1,0 +1,78 @@
+﻿@page
+@model SmartphoneTechAdvisor.Pages.CompareTableModel
+@{
+    ViewData["Title"] = "Compare";
+}
+
+<!-- Follow these instructions, please! -->
+<div class="container py-5">
+    @if (Model.techspec_object.Any())
+    {
+        @foreach (var phone in Model.techspec_object)
+        {
+                <div class="col">
+                    <div class="card">
+                        <img src="https://coolmobilehu.cdn.shoprenter.hu/custom/coolmobilehu/image/data/product/Apple/13/iphone_13_starlight_pdp_image_position-1a__wwen_6.jpg?lastmod=1684337922.1660808165" alt="iPhone13" class="card-img-top">
+                        <div class="card-body">
+                            <h5 class="card-title">@phone.name</h5>
+                            <div class="card-text">
+                                <table class="table table-sm">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col"></th>
+                                            <th scope="col"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <!-- Tech spec -->
+                                        <tr>
+                                            <th colspan="2">Tech spec</th>
+                                        </tr>
+                                        <tr>
+                                            <td>CPU</td>
+                                            <td>@(string.Join(",", phone.TechSpec.Cpu))</td>
+                                        </tr>
+                                        <tr>
+                                            <td>RAM</td>
+                                            <td>@(string.Join(",", phone.TechSpec.Ram))</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Memory</td>
+                                            <td>@(string.Join(",", phone.TechSpec.Memory))</td>
+                                        </tr>
+                                        <!-- Display spec -->
+                                        <tr>
+                                            <th colspan="2">Display</th>
+                                        </tr>
+
+                                        <tr>
+                                            <td>Display Size</td>
+                                            <td>@phone.display.screenSize</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Refresh Rate</td>
+                                            <td>@phone.display.refreshRate</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Screen Type</td>
+                                            <td>@phone.display.screenType</td>
+                                        </tr> 
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        }
+    }
+    else
+    {
+        <div class="row">
+            <h1 class="text-center">Ai consultant can't find tech specs for your phones, please go back and try again</h1>
+        </div>
+    }
+
+    <div class="row justify-content-center">
+        <a asp-page="/Index" class="btn btn-primary" style="width: 20rem">Back</a>
+    </div>
+</div>
