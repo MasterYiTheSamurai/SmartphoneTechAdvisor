@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Newtonsoft.Json;
-using SmartphoneTechAdvisor.HttpClients;
 using SmartphoneTechAdvisor.Models;
 
 namespace SmartphoneTechAdvisor.Pages
