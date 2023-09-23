@@ -6,7 +6,7 @@
 
 <!-- Follow these instructions, please! -->
 <div class="container py-5">
-    @if (Model.techspec_object.Any())
+    @if (Model.techspec_object != null)
     {
         @foreach (var phone in Model.techspec_object)
         {
@@ -30,32 +30,44 @@
                                         </tr>
                                         <tr>
                                             <td>CPU</td>
-                                            <td>@(string.Join(",", phone.TechSpec.Cpu))</td>
+                                        @if (phone != null && phone.TechSpec != null && phone.TechSpec.Cpu != null)
+                                        {
+                                            <td>@string.Join(",", phone.TechSpec.Cpu)</td>
+                                        }
                                         </tr>
                                         <tr>
                                             <td>RAM</td>
-                                            <td>@(string.Join(",", phone.TechSpec.Ram))</td>
+                                        @if (phone != null && phone.TechSpec != null && phone.TechSpec.Ram != null)
+                                        {
+                                            <td>@string.Join(",", phone.TechSpec.Ram)</td>
+                                        }
                                         </tr>
                                         <tr>
                                             <td>Memory</td>
-                                            <td>@(string.Join(",", phone.TechSpec.Memory))</td>
+                                        @if (phone != null && phone.TechSpec != null && phone.TechSpec.Memory != null)
+                                        {
+                                            <td>@string.Join(",", phone.TechSpec.Memory)</td>
+                                        }
                                         </tr>
                                         <!-- Display spec -->
                                         <tr>
                                             <th colspan="2">Display</th>
                                         </tr>
-
+                                        <tr>
+                                            <td>Screen Resolution</td>
+                                            <td>@phone?.display?.screenResolution</td>
+                                        </tr>
                                         <tr>
                                             <td>Display Size</td>
-                                            <td>@phone.display.screenSize</td>
+                                            <td>@phone?.display?.screenSize</td>
                                         </tr>
                                         <tr>
                                             <td>Refresh Rate</td>
-                                            <td>@phone.display.refreshRate</td>
+                                            <td>@phone?.display?.refreshRate</td>
                                         </tr>
                                         <tr>
                                             <td>Screen Type</td>
-                                            <td>@phone.display.screenType</td>
+                                            <td>@phone?.display?.screenType</td>
                                         </tr> 
                                     </tbody>
                                 </table>
